@@ -1,16 +1,25 @@
 package task9;
 
-public class Circle implements Movable{
+public class Circle implements Movable, Rezisable {
 
-    private Point2D center;
-    private Point2D point;
+    private final Point2D center;
+    private final Point2D point;
+
+    private double radius;
 
     public Circle(Point2D center, Point2D point) {
         this.center = center;
         this.point = point;
+        this.radius = calculateRadius();
     }
 
     public double getRadius() {
+        return radius;
+    }
+
+    public double calculateRadius() {
+
+        System.out.println("Calculate radius");
 
         double poweredDifferenceBetweenTwoXCoordinates = Math.pow((center.getX()
                 - point.getX()),2);
@@ -21,21 +30,30 @@ public class Circle implements Movable{
     }
 
     public double getPerimeter() {
-        return 2 * Math.PI * getRadius();
+        return 2 * Math.PI * radius;
     }
 
     public double getArea() {
-        return Math.PI * Math.pow(getRadius(), 2);
+        return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
-    public Object move(MoveDirection moveDirection) {
+    public void move(MoveDirection moveDirection) {
 
-        Point2D movedCenter = (Point2D) center.move(moveDirection);
-        Point2D movedPoint = (Point2D) point.move(moveDirection);
-
-        return new Circle(movedCenter, movedPoint);
+//        move center
+        center.move(moveDirection);
+        // move point
+        point.move(moveDirection);
     }
+
+//    @Override
+//    public Object move(MoveDirection moveDirection) {
+//
+//        Point2D movedCenter = (Point2D) center.move(moveDirection);
+//        Point2D movedPoint = (Point2D) point.move(moveDirection);
+//
+//        return new Circle(movedCenter, movedPoint);
+//    }
 
     @Override
     public String toString() {
@@ -43,5 +61,10 @@ public class Circle implements Movable{
                 "center=" + center +
                 ", point=" + point +
                 '}';
+    }
+
+    @Override
+    public void resize(double resizeFactor) {
+        radius *= resizeFactor;
     }
 }

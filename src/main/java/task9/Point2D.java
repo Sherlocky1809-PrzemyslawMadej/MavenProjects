@@ -1,6 +1,6 @@
 package task9;
 
-public class Point2D implements Movable{
+public class Point2D implements Movable {
 
     private double x;
     private double y;
@@ -35,14 +35,21 @@ public class Point2D implements Movable{
     }
 
     @Override
-    public Object move(MoveDirection moveDirection) {
+    public void move(MoveDirection moveDirection) {
 
-        double XOrdinate = getX() + moveDirection.getX();
-        double YOrdinate = getY() + moveDirection.getY();
-
-
-        Point2D movedPoint = new Point2D(XOrdinate, YOrdinate);
-
-        return movedPoint;
+        this.setX(this.getX() + moveDirection.getX());
+        this.setY(this.getY() + moveDirection.getY());
+//        x += moveDiretion.getX();
+//        y += moveDirection.getY();
     }
+
+
+//    @Override
+//    public Object move(MoveDirection moveDirection) {
+//
+//        double XOrdinate = getX() + moveDirection.getX();
+//        double YOrdinate = getY() + moveDirection.getY();
+//
+//        return new Point2D(XOrdinate, YOrdinate);
+//    }
 }

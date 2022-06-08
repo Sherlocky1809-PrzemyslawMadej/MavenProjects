@@ -2,5 +2,5 @@ package task9;
 
 public interface Movable {
 
-    Object move (MoveDirection moveDirection);
+    void move (MoveDirection moveDirection);
 }

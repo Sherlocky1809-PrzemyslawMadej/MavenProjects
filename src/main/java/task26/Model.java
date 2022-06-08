@@ -32,6 +32,6 @@ public class Model {
                 "name='" + name + '\'' +
                 ", productionStartYear=" + productionStartYear +
                 ", cars=" + cars +
-                '}';
+                '}' + '\n';
     }
 }

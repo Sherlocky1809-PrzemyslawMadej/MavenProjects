@@ -12,7 +12,7 @@ class CircleTest {
         Circle circle = new Circle(new Point2D(0,3), new Point2D(4, 0));
         double expectedRadius = 5;
         // when
-        double radius = circle.getRadius();
+        double radius = circle.calculateRadius();
         // then
         assertEquals(expectedRadius, radius);
     }
